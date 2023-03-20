@@ -1,24 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pomodoro" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-ot-opl">
+                                <rect key="frame" x="175.66666666666666" y="415.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-O1-m4z">
+                                <rect key="frame" x="163" y="678" width="67.333333333333314" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="minutes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bht-co-DpE">
+                                <rect key="frame" x="166" y="446.66666666666669" width="61" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gG-JN-XsY">
+                                <rect key="frame" x="159" y="633" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-uX-lSl">
+                                <rect key="frame" x="121" y="507.66666666666669" width="150" height="4"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i0-Dt-iWB">
+                                <rect key="frame" x="306" y="59" width="87" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Settings"/>
+                                <connections>
+                                    <action selector="settingsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vIg-RW-ueM"/>
+                                    <segue destination="Adl-dw-A6z" kind="show" identifier="showSettings" id="K9l-NQ-mAf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4h-1p-kCn">
+                                <rect key="frame" x="159" y="74" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                <connections>
+                                    <action selector="SelectSessionTypeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kq-qz-jDO"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fsb-ot-opl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0aw-du-Tat"/>
+                            <constraint firstItem="SGb-uX-lSl" firstAttribute="top" secondItem="bht-co-DpE" secondAttribute="bottom" constant="40" id="3w6-S4-sm1"/>
+                            <constraint firstItem="6i0-Dt-iWB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9st-pV-FUa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4gG-JN-XsY" secondAttribute="bottom" constant="150" id="ESc-Ns-7zP"/>
+                            <constraint firstItem="qRS-O1-m4z" firstAttribute="top" secondItem="4gG-JN-XsY" secondAttribute="bottom" constant="10" id="FQd-S9-SOY"/>
+                            <constraint firstItem="SGb-uX-lSl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QdE-OV-3XD"/>
+                            <constraint firstItem="bht-co-DpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gMP-Gs-lay"/>
+                            <constraint firstItem="bht-co-DpE" firstAttribute="top" secondItem="fsb-ot-opl" secondAttribute="bottom" constant="10" id="m92-CT-vJu"/>
+                            <constraint firstItem="4gG-JN-XsY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uhi-i0-pVg"/>
+                            <constraint firstItem="fsb-ot-opl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xNf-ma-7HL"/>
+                            <constraint firstItem="qRS-O1-m4z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yWT-Nj-O1F"/>
+                            <constraint firstItem="6i0-Dt-iWB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zjq-9i-JWo"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="SelectSessionTypeButton" destination="l4h-1p-kCn" id="n7n-6K-47x"/>
+                        <outlet property="minutesLabel" destination="fsb-ot-opl" id="BGd-iF-rNq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="77" y="4"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Wog-vr-DGh">
+            <objects>
+                <viewController id="Adl-dw-A6z" customClass="SettingsViewController" customModule="Pomodoro" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2An-CH-w26">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="9pb-iT-QbQ">
+                                <rect key="frame" x="149" y="244" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="stepperTapped:" destination="Adl-dw-A6z" eventType="valueChanged" id="JYP-hY-xvb"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoT-ZR-bxF">
+                                <rect key="frame" x="175" y="200" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Y9l-hr-pug"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1lm-LI-YwR"/>
+                    <connections>
+                        <outlet property="workTimeLabel" destination="eoT-ZR-bxF" id="RIm-6M-aXQ"/>
+                        <outlet property="workTimeStepper" destination="9pb-iT-QbQ" id="guM-QS-zaO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VUa-rm-eMP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="799" y="4"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
