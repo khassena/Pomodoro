@@ -10,35 +10,76 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     //let defaults = UserDefaults.standard
-
-    @IBOutlet weak var workTimeStepper: UIStepper!
+    
+    
     @IBOutlet weak var workTimeLabel: UILabel!
+    
+    @IBOutlet weak var shortBreakTimeLabel: UILabel!
+    
+    @IBOutlet weak var longBreakTimeLabel: UILabel!
+    @IBOutlet weak var plusWorkButton: UIButton!
+    @IBOutlet weak var minusWorkButton: UIButton!
+    @IBOutlet weak var background: UIImageView!
+    var workTime: Int = 30
+    var shortBreakTime: Int = 5
+    var longBreakTime: Int = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(workTimeStepper.value)
-
-        // Do any additional setup after loading the view.
+        //background.layer.cornerRadius = background
+        //background.layer.opacity
+        plusWorkButton.layer.cornerRadius = plusWorkButton.bounds.size.height/2
+        plusWorkButton.clipsToBounds = true
+        minusWorkButton.layer.cornerRadius = plusWorkButton.bounds.size.height/2
+        minusWorkButton.clipsToBounds = true
+        workTimeLabel.text = String(workTime)
+        
     }
     
-    @IBAction func stepperTapped(_ sender: UIStepper) {
-        workTimeLabel.text = String(format: "%.0f", workTimeStepper.value)
-        //defaults.set(workTimeLabel.text, forKey: K.workTime)
+    
+    @IBAction func increaseWorkTime(_ sender: UIButton) {
+        if workTime < 99 {
+            workTime += 1
+        }
+        
+        workTimeLabel.text = String(workTime)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destVC = segue.destination as? ViewController
-//        destVC?.minutesLabel.text = workTimeLabel.text
+    @IBAction func decreaseWorkTime(_ sender: UIButton) {
+        if workTime != 0 {
+            workTime -= 1
+        }
+        workTimeLabel.text = String(workTime)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func increaseShortBreakTime(_ sender: UIButton) {
+        if shortBreakTime < 99 {
+            shortBreakTime += 1
+        }
+        shortBreakTimeLabel.text = String(shortBreakTime)
     }
-    */
+    
+    @IBAction func decreaseShortBreakTime(_ sender: UIButton) {
+        if shortBreakTime != 0 {
+            shortBreakTime -= 1
+        }
+        shortBreakTimeLabel.text = String(shortBreakTime)
+    }
+    
+    @IBAction func increaseLongBreakTime(_ sender: UIButton) {
+        if longBreakTime < 99 {
+            longBreakTime += 1
+        }
+        longBreakTimeLabel.text = String(longBreakTime)
+    }
+    
+    @IBAction func decreaseLongBreakTime(_ sender: UIButton) {
+        if longBreakTime != 0 {
+            longBreakTime -= 1
+        }
+        longBreakTimeLabel.text = String(longBreakTime)
+    }
+    
 
+    
 }
