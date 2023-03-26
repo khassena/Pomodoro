@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var SelectSessionTypeButton: UIButton!
     
+    @IBOutlet weak var startButton: UIButton!
+    
+    @IBOutlet weak var resetButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,19 +75,32 @@ class ViewController: UIViewController {
             
         }
     
-    
-    @IBAction func startButton(_ sender: Any) {
+    @IBAction func startButtonTapped(_ sender: Any) {
+        resetButton.isEnabled = true
+        resetButton.alpha = 1.0
+        
         if !isTimerStarted {
-            
             startTimer()
             isTimerStarted = true
-        }else {
+            startButton.setTitle("Pause", for: .normal)
+            startButton.setTitleColor(UIColor.darkGray, for: .normal)
+            startButton.backgroundColor = UIColor.lightGray
+        } else {
             timer.invalidate()
             isTimerStarted = false
+            startButton.setTitle("Resume", for: .normal)
+            startButton.setTitleColor(UIColor.white, for: .normal)
+            startButton.backgroundColor = UIColor(named: "Indigo")
         }
     }
     
-    @IBAction func resetButton(_ sender: Any) {
+    
+    @IBAction func resetButtonTapped(_ sender: Any) {
+        resetButton.isEnabled = false
+        resetButton.alpha = 0.5
+        startButton.setTitle("Start", for: .normal)
+        startButton.setTitleColor(UIColor.white, for: .normal)
+        startButton.backgroundColor = UIColor(named: "Indigo")
         timer.invalidate()
         time = 1800
         isTimerStarted = false
@@ -95,6 +112,7 @@ class ViewController: UIViewController {
     }
     
     @objc func updateTimer(){
+        //MARK fix: when time < 1
         time -= 1
         minutesLabel.text = formatTime()
     }

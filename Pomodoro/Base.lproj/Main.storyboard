@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,16 +29,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Reset"/>
                                 <connections>
-                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqU-qF-BZt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gG-JN-XsY">
-                                <rect key="frame" x="169.5" y="677.5" width="75" height="34.5"/>
-                                <color key="tintColor" systemColor="systemIndigoColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bmk-Vq-Kvn"/>
+                                    <action selector="resetButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B3w-cc-P7u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4h-1p-kCn">
@@ -50,7 +42,7 @@
                                     <action selector="SelectSessionTypeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kq-qz-jDO"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="136" translatesAutoresizingMaskIntoConstraints="NO" id="yWV-LP-GHv">
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="136" translatesAutoresizingMaskIntoConstraints="NO" id="yWV-LP-GHv">
                                 <rect key="frame" x="52" y="807.5" width="310" height="34.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba6-Cf-Hjw">
@@ -78,6 +70,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndV-in-JaE">
+                                <rect key="frame" x="144" y="679" width="127" height="35"/>
+                                <color key="backgroundColor" name="Indigo"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y6m-e8-512"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,11 +87,13 @@
                         <constraints>
                             <constraint firstItem="fsb-ot-opl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0aw-du-Tat"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yWV-LP-GHv" secondAttribute="bottom" constant="20" id="5pE-pe-oFS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4gG-JN-XsY" secondAttribute="bottom" constant="150" id="ESc-Ns-7zP"/>
-                            <constraint firstItem="qRS-O1-m4z" firstAttribute="top" secondItem="4gG-JN-XsY" secondAttribute="bottom" constant="10" id="FQd-S9-SOY"/>
+                            <constraint firstItem="ndV-in-JaE" firstAttribute="centerX" secondItem="qRS-O1-m4z" secondAttribute="centerX" id="IvN-eT-x0v"/>
                             <constraint firstItem="bht-co-DpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gMP-Gs-lay"/>
+                            <constraint firstItem="ndV-in-JaE" firstAttribute="centerX" secondItem="yWV-LP-GHv" secondAttribute="centerX" id="hFY-fX-KLe"/>
                             <constraint firstItem="bht-co-DpE" firstAttribute="top" secondItem="fsb-ot-opl" secondAttribute="bottom" constant="30" id="m92-CT-vJu"/>
-                            <constraint firstItem="4gG-JN-XsY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uhi-i0-pVg"/>
+                            <constraint firstAttribute="bottom" secondItem="ndV-in-JaE" secondAttribute="bottom" constant="182" id="oKZ-gu-Mrl"/>
+                            <constraint firstItem="qRS-O1-m4z" firstAttribute="top" secondItem="ndV-in-JaE" secondAttribute="bottom" constant="8" id="pTD-h3-4zc"/>
+                            <constraint firstItem="ndV-in-JaE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="144" id="sue-Tz-Foc"/>
                             <constraint firstItem="fsb-ot-opl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="xNf-ma-7HL"/>
                             <constraint firstItem="qRS-O1-m4z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yWT-Nj-O1F"/>
                         </constraints>
@@ -97,6 +101,8 @@
                     <connections>
                         <outlet property="SelectSessionTypeButton" destination="l4h-1p-kCn" id="n7n-6K-47x"/>
                         <outlet property="minutesLabel" destination="fsb-ot-opl" id="BGd-iF-rNq"/>
+                        <outlet property="resetButton" destination="qRS-O1-m4z" id="lkZ-RG-iIh"/>
+                        <outlet property="startButton" destination="ndV-in-JaE" id="xh9-yo-dTV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -429,11 +435,18 @@
             <point key="canvasLocation" x="77" y="714"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="Colors"/>
     <resources>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="pin.fill" catalog="system" width="116" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="Colors">
+            <color red="0.34509804840000002" green="0.33725491169999999" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Indigo">
+            <color red="0.34509804840000002" green="0.33725491169999999" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
