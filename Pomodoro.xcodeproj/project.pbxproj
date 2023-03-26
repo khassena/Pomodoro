@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1910415129CDCB210017AB68 /* TimeBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910415029CDCB210017AB68 /* TimeBarController.swift */; };
 		7674B39A29A8FC68006161DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39929A8FC68006161DB /* AppDelegate.swift */; };
 		7674B39C29A8FC68006161DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39B29A8FC68006161DB /* SceneDelegate.swift */; };
 		7674B39E29A8FC68006161DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39D29A8FC68006161DB /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1910415029CDCB210017AB68 /* TimeBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarController.swift; sourceTree = "<group>"; };
 		7674B39629A8FC68006161DB /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7674B39929A8FC68006161DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7674B39B29A8FC68006161DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1910414C29CDCAD70017AB68 /* TimeBarScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1910414F29CDCAFF0017AB68 /* ViewModel */,
+				1910414E29CDCAF90017AB68 /* Model */,
+				1910414D29CDCAF20017AB68 /* View */,
+			);
+			path = TimeBarScreen;
+			sourceTree = "<group>";
+		};
+		1910414D29CDCAF20017AB68 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1910415029CDCB210017AB68 /* TimeBarController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1910414E29CDCAF90017AB68 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1910414F29CDCAFF0017AB68 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7674B38D29A8FC68006161DB = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +106,7 @@
 		7674B39829A8FC68006161DB /* Pomodoro */ = {
 			isa = PBXGroup;
 			children = (
+				1910414C29CDCAD70017AB68 /* TimeBarScreen */,
 				7674B39929A8FC68006161DB /* AppDelegate.swift */,
 				7674B39B29A8FC68006161DB /* SceneDelegate.swift */,
 				7674B3B029A903FA006161DB /* Constants.swift */,
@@ -220,6 +255,7 @@
 				FAA25F9A29CC97F90037A42A /* TasksTableViewController.swift in Sources */,
 				FAA25F9829CC95E00037A42A /* TasksTableView.swift in Sources */,
 				7674B3AE29A902DD006161DB /* SettingsViewController.swift in Sources */,
+				1910415129CDCB210017AB68 /* TimeBarController.swift in Sources */,
 				FAA25F9229CC954C0037A42A /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

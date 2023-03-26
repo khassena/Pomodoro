@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var SelectSessionTypeButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,6 +23,10 @@ class ViewController: UIViewController {
                 minutesLabel.text = newValue
             }
         }
+    
+    var timer = Timer()
+    var isTimerStarted = false
+    var time = 1800
   
     @IBAction func SelectSessionTypeButtonPressed(_ sender: UIButton) {
         
@@ -60,11 +65,45 @@ class ViewController: UIViewController {
     @IBAction func unwindToMain(_ sender: UIStoryboardSegue) {
         
         if let source = sender.source as? SettingsViewController {
-            dataReceived = source.workTimeLabel
+            dataReceived = source.workTimeLabel.text
         }
                // minutesLabel.text = source.workTimeLabel.text
             
         }
+    
+    
+    @IBAction func startButton(_ sender: Any) {
+        if !isTimerStarted {
+            
+            startTimer()
+            isTimerStarted = true
+        }else {
+            timer.invalidate()
+            isTimerStarted = false
+        }
+    }
+    
+    @IBAction func resetButton(_ sender: Any) {
+        timer.invalidate()
+        time = 1800
+        isTimerStarted = false
+        minutesLabel.text = "30"
+    }
+    
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer(){
+        time -= 1
+        minutesLabel.text = formatTime()
+    }
+    
+    func formatTime()->String{
+        let minutes = Int(time) / 60 % 60
+        return String(format: "%02i", minutes)
+    }
+    
     
 }
 
