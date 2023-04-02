@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1910415129CDCB210017AB68 /* TimeBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910415029CDCB210017AB68 /* TimeBarController.swift */; };
+		5DFDABCB2732F7D42621C3A9 /* Pods_Pomodoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A084B47BB2D4822A6EAF650C /* Pods_Pomodoro.framework */; };
 		7674B39A29A8FC68006161DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39929A8FC68006161DB /* AppDelegate.swift */; };
 		7674B39C29A8FC68006161DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39B29A8FC68006161DB /* SceneDelegate.swift */; };
 		7674B39E29A8FC68006161DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39D29A8FC68006161DB /* ViewController.swift */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
+		07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.debug.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.debug.xcconfig"; sourceTree = "<group>"; };
 		1910415029CDCB210017AB68 /* TimeBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarController.swift; sourceTree = "<group>"; };
 		7674B39629A8FC68006161DB /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7674B39929A8FC68006161DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		7674B3A729A8FC6C006161DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7674B3AD29A902DD006161DB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7674B3B029A903FA006161DB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A084B47BB2D4822A6EAF650C /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA25F8E29CC953C0037A42A /* TasksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModel.swift; sourceTree = "<group>"; };
 		FAA25F9129CC954C0037A42A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		FAA25F9429CC95920037A42A /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DFDABCB2732F7D42621C3A9 /* Pods_Pomodoro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +97,8 @@
 			children = (
 				7674B39829A8FC68006161DB /* Pomodoro */,
 				7674B39729A8FC68006161DB /* Products */,
+				C17C7D6B7097B20579FB64D9 /* Pods */,
+				87BBA70A2D49D37FE67B1458 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +134,24 @@
 				7674B3AD29A902DD006161DB /* SettingsViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		87BBA70A2D49D37FE67B1458 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A084B47BB2D4822A6EAF650C /* Pods_Pomodoro.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C17C7D6B7097B20579FB64D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */,
+				028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		FAA25F8C29CC944C0037A42A /* TasksScreen */ = {
@@ -181,9 +206,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7674B3AA29A8FC6C006161DB /* Build configuration list for PBXNativeTarget "Pomodoro" */;
 			buildPhases = (
+				F828A9F3E01B8EA009F47F97 /* [CP] Check Pods Manifest.lock */,
 				7674B39229A8FC68006161DB /* Sources */,
 				7674B39329A8FC68006161DB /* Frameworks */,
 				7674B39429A8FC68006161DB /* Resources */,
+				9F0F1FFDFE3CD4A3380B53D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,6 +266,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9F0F1FFDFE3CD4A3380B53D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pomodoro/Pods-Pomodoro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pomodoro/Pods-Pomodoro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pomodoro/Pods-Pomodoro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F828A9F3E01B8EA009F47F97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pomodoro-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7674B39229A8FC68006161DB /* Sources */ = {
@@ -398,6 +467,7 @@
 		};
 		7674B3AB29A8FC6C006161DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -427,6 +497,7 @@
 		};
 		7674B3AC29A8FC6C006161DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
