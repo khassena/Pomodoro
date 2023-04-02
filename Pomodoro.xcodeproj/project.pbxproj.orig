@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< Updated upstream
 		1910415129CDCB210017AB68 /* TimeBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910415029CDCB210017AB68 /* TimeBarController.swift */; };
 		5DFDABCB2732F7D42621C3A9 /* Pods_Pomodoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A084B47BB2D4822A6EAF650C /* Pods_Pomodoro.framework */; };
+=======
+		172F5006473E23A4338CA84D /* Pods_Pomodoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E826482C9BAA57D51CA515F /* Pods_Pomodoro.framework */; };
+>>>>>>> Stashed changes
 		7674B39A29A8FC68006161DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39929A8FC68006161DB /* AppDelegate.swift */; };
 		7674B39C29A8FC68006161DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39B29A8FC68006161DB /* SceneDelegate.swift */; };
 		7674B39E29A8FC68006161DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39D29A8FC68006161DB /* ViewController.swift */; };
@@ -18,19 +22,24 @@
 		7674B3AE29A902DD006161DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B3AD29A902DD006161DB /* SettingsViewController.swift */; };
 		7674B3B129A903FA006161DB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B3B029A903FA006161DB /* Constants.swift */; };
 		FAA25F8F29CC953C0037A42A /* TasksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25F8E29CC953C0037A42A /* TasksModel.swift */; };
+		FAA25F9229CC954C0037A42A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25F9129CC954C0037A42A /* TasksViewModel.swift */; };
 		FAA25F9529CC95920037A42A /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25F9429CC95920037A42A /* TasksTableViewCell.swift */; };
 		FAA25F9829CC95E00037A42A /* TasksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25F9729CC95E00037A42A /* TasksTableView.swift */; };
 		FAA25F9C29CC982A0037A42A /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25F9B29CC982A0037A42A /* TasksViewController.swift */; };
 		FAA25FA029D191AC0037A42A /* TasksStorageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25F9F29D191AC0037A42A /* TasksStorageModel.swift */; };
 		FAA25FA229D2C20C0037A42A /* TasksStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FA129D2C20C0037A42A /* TasksStorageService.swift */; };
 		FAA25FA529D985E50037A42A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FA429D985E50037A42A /* PaddingLabel.swift */; };
-		FAA25FAC29D9E27B0037A42A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FAB29D9E27B0037A42A /* TasksViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+<<<<<<< Updated upstream
 		028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
 		07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.debug.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.debug.xcconfig"; sourceTree = "<group>"; };
 		1910415029CDCB210017AB68 /* TimeBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarController.swift; sourceTree = "<group>"; };
+=======
+		24877ADE3B429A3257AFAF6C /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
+		4E826482C9BAA57D51CA515F /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> Stashed changes
 		7674B39629A8FC68006161DB /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7674B39929A8FC68006161DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7674B39B29A8FC68006161DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,15 +50,19 @@
 		7674B3A729A8FC6C006161DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7674B3AD29A902DD006161DB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		7674B3B029A903FA006161DB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
 		A084B47BB2D4822A6EAF650C /* Pods_Pomodoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pomodoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		868A434E4720B73DAFAAE631 /* Pods-Pomodoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.debug.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		FAA25F8E29CC953C0037A42A /* TasksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksModel.swift; sourceTree = "<group>"; };
+		FAA25F9129CC954C0037A42A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 		FAA25F9429CC95920037A42A /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		FAA25F9729CC95E00037A42A /* TasksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableView.swift; sourceTree = "<group>"; };
 		FAA25F9B29CC982A0037A42A /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		FAA25F9F29D191AC0037A42A /* TasksStorageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStorageModel.swift; sourceTree = "<group>"; };
 		FAA25FA129D2C20C0037A42A /* TasksStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStorageService.swift; sourceTree = "<group>"; };
 		FAA25FA429D985E50037A42A /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
-		FAA25FAB29D9E27B0037A42A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +70,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
 				5DFDABCB2732F7D42621C3A9 /* Pods_Pomodoro.framework in Frameworks */,
+=======
+				172F5006473E23A4338CA84D /* Pods_Pomodoro.framework in Frameworks */,
+>>>>>>> Stashed changes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< Updated upstream
 		1910414C29CDCAD70017AB68 /* TimeBarScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +112,23 @@
 			children = (
 			);
 			path = ViewModel;
+=======
+		3BB91755BAEF9EA87752BF2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				868A434E4720B73DAFAAE631 /* Pods-Pomodoro.debug.xcconfig */,
+				24877ADE3B429A3257AFAF6C /* Pods-Pomodoro.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6E219EECA8C64738DC4FD202 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E826482C9BAA57D51CA515F /* Pods_Pomodoro.framework */,
+			);
+			name = Frameworks;
+>>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
 		7674B38D29A8FC68006161DB = {
@@ -101,8 +136,13 @@
 			children = (
 				7674B39829A8FC68006161DB /* Pomodoro */,
 				7674B39729A8FC68006161DB /* Products */,
+<<<<<<< Updated upstream
 				C17C7D6B7097B20579FB64D9 /* Pods */,
 				87BBA70A2D49D37FE67B1458 /* Frameworks */,
+=======
+				3BB91755BAEF9EA87752BF2A /* Pods */,
+				6E219EECA8C64738DC4FD202 /* Frameworks */,
+>>>>>>> Stashed changes
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +195,7 @@
 				07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */,
 				028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -190,7 +231,7 @@
 		FAA25F9329CC95510037A42A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FAA25FAB29D9E27B0037A42A /* TasksViewModel.swift */,
+				FAA25F9129CC954C0037A42A /* TasksViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,11 +260,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7674B3AA29A8FC6C006161DB /* Build configuration list for PBXNativeTarget "Pomodoro" */;
 			buildPhases = (
+<<<<<<< Updated upstream
 				F828A9F3E01B8EA009F47F97 /* [CP] Check Pods Manifest.lock */,
 				7674B39229A8FC68006161DB /* Sources */,
 				7674B39329A8FC68006161DB /* Frameworks */,
 				7674B39429A8FC68006161DB /* Resources */,
 				9F0F1FFDFE3CD4A3380B53D5 /* [CP] Embed Pods Frameworks */,
+=======
+				10E9EE08B7DF714EB1F481B5 /* [CP] Check Pods Manifest.lock */,
+				7674B39229A8FC68006161DB /* Sources */,
+				7674B39329A8FC68006161DB /* Frameworks */,
+				7674B39429A8FC68006161DB /* Resources */,
+				9BBC6F772D6BE41E6546008E /* [CP] Embed Pods Frameworks */,
+>>>>>>> Stashed changes
 			);
 			buildRules = (
 			);
@@ -281,6 +330,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+<<<<<<< Updated upstream
 		9F0F1FFDFE3CD4A3380B53D5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +349,9 @@
 			showEnvVarsInLog = 0;
 		};
 		F828A9F3E01B8EA009F47F97 /* [CP] Check Pods Manifest.lock */ = {
+=======
+		10E9EE08B7DF714EB1F481B5 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,6 +373,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+<<<<<<< Updated upstream
+=======
+		9BBC6F772D6BE41E6546008E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pomodoro/Pods-Pomodoro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pomodoro/Pods-Pomodoro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pomodoro/Pods-Pomodoro-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+>>>>>>> Stashed changes
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,11 +409,15 @@
 				FAA25F8F29CC953C0037A42A /* TasksModel.swift in Sources */,
 				FAA25FA229D2C20C0037A42A /* TasksStorageService.swift in Sources */,
 				FAA25FA029D191AC0037A42A /* TasksStorageModel.swift in Sources */,
-				FAA25FAC29D9E27B0037A42A /* TasksViewModel.swift in Sources */,
 				FAA25F9829CC95E00037A42A /* TasksTableView.swift in Sources */,
 				FAA25FA529D985E50037A42A /* PaddingLabel.swift in Sources */,
 				7674B3AE29A902DD006161DB /* SettingsViewController.swift in Sources */,
+<<<<<<< Updated upstream
 				1910415129CDCB210017AB68 /* TimeBarController.swift in Sources */,
+				FAA25F9229CC954C0037A42A /* ViewModel.swift in Sources */,
+=======
+				FAA25F9229CC954C0037A42A /* TasksViewModel.swift in Sources */,
+>>>>>>> Stashed changes
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +559,11 @@
 		};
 		7674B3AB29A8FC6C006161DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
 			baseConfigurationReference = 07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */;
+=======
+			baseConfigurationReference = 868A434E4720B73DAFAAE631 /* Pods-Pomodoro.debug.xcconfig */;
+>>>>>>> Stashed changes
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -512,7 +593,11 @@
 		};
 		7674B3AC29A8FC6C006161DB /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< Updated upstream
 			baseConfigurationReference = 028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */;
+=======
+			baseConfigurationReference = 24877ADE3B429A3257AFAF6C /* Pods-Pomodoro.release.xcconfig */;
+>>>>>>> Stashed changes
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

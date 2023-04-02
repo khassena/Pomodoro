@@ -101,6 +101,7 @@
                                     <action selector="SelectSessionTypeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3kq-qz-jDO"/>
                                 </connections>
                             </button>
+<<<<<<< Updated upstream
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="fsb-ot-opl">
                                 <rect key="frame" x="158" y="389" width="99" height="96.5"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="83"/>
@@ -112,6 +113,16 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ba6-Cf-Hjw">
+                                <rect key="frame" x="74" y="792" width="67" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="aOJ-vC-HNB" kind="show" id="lhN-GH-Yey"/>
+                                </connections>
+                            </button>
+>>>>>>> Stashed changes
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -340,6 +351,70 @@
             <point key="canvasLocation" x="797.70992366412213" y="3.5211267605633805"/>
         </scene>
         <!--Tasks-->
+<<<<<<< Updated upstream
+        <scene sceneID="Q7h-17-kd4">
+            <objects>
+                <tableViewController id="9c8-bx-mUr" customClass="TasksTableViewController" customModule="Pomodoro" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" id="uEH-mc-3fx" customClass="TasksTableView" customModule="Pomodoro" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="730"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tasksCell" rowHeight="105" id="m6j-Qk-4Vp" customClass="TasksTableViewCell" customModule="Pomodoro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="374" height="105"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6j-Qk-4Vp" id="TN4-XM-OLT">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="105"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-5L-tzk">
+                                            <rect key="frame" x="0.0" y="10" width="374" height="85"/>
+                                            <color key="backgroundColor" red="0.92156863209999995" green="0.92156863209999995" blue="0.92156863209999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LFF-hR-fAj">
+                                            <rect key="frame" x="330" y="40" width="24" height="25.5"/>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="M6V-Kk-FY1"/>
+                                                <constraint firstAttribute="width" constant="24" id="RbQ-a0-uno"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ifm-5L-tzk" secondAttribute="trailing" id="Hgn-AK-pqL"/>
+                                        <constraint firstAttribute="bottom" secondItem="ifm-5L-tzk" secondAttribute="bottom" constant="10" id="Wwv-4g-ZJP"/>
+                                        <constraint firstItem="ifm-5L-tzk" firstAttribute="top" secondItem="TN4-XM-OLT" secondAttribute="top" constant="10" id="XTk-wb-blg"/>
+                                        <constraint firstItem="ifm-5L-tzk" firstAttribute="leading" secondItem="TN4-XM-OLT" secondAttribute="leading" id="sAR-04-Ebs"/>
+                                        <constraint firstItem="LFF-hR-fAj" firstAttribute="centerY" secondItem="ifm-5L-tzk" secondAttribute="centerY" id="tRr-qq-HV3"/>
+                                        <constraint firstItem="LFF-hR-fAj" firstAttribute="trailing" secondItem="TN4-XM-OLT" secondAttribute="trailingMargin" id="zyp-PW-aWE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="taskLabel" destination="ifm-5L-tzk" id="jps-8l-tZy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="9c8-bx-mUr" id="zQZ-Sn-nOZ"/>
+                            <outlet property="delegate" destination="9c8-bx-mUr" id="Cxd-Ii-1JM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Tasks" id="BRO-2y-36T"/>
+                    <connections>
+                        <outlet property="tasksTableView" destination="uEH-mc-3fx" id="yaZ-M5-R4d"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L17-fT-tJG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1602.8985507246377" y="713.83928571428567"/>
+        </scene>
+        <!--Tasks-->
+=======
+>>>>>>> Stashed changes
         <scene sceneID="i6a-hc-JmX">
             <objects>
                 <viewController id="oWS-rf-xRS" customClass="TasksViewController" customModule="Pomodoro" customModuleProvider="target" sceneMemberID="viewController">
@@ -347,6 +422,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< Updated upstream
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sbe-xI-zaO">
+                                <rect key="frame" x="20" y="108" width="374" height="730"/>
+                                <connections>
+                                    <segue destination="9c8-bx-mUr" kind="embed" id="jgy-El-PYE"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIS-t3-xzD">
+                                <rect key="frame" x="253" y="750" width="141" height="54"/>
+=======
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Q69-Ce-dl8" customClass="TasksTableView" customModule="Pomodoro" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                                 <prototypes>
@@ -410,6 +495,7 @@
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIS-t3-xzD">
                                 <rect key="frame" x="257" y="734" width="137" height="54"/>
+>>>>>>> Stashed changes
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="sOz-eI-OS8"/>
                                     <constraint firstAttribute="height" constant="54" id="z7X-2W-ix2"/>
@@ -476,9 +562,13 @@
             <point key="canvasLocation" x="77" y="714"/>
         </scene>
     </scenes>
+<<<<<<< Updated upstream
+    <color key="tintColor" name="Colors"/>
+=======
     <designables>
         <designable name="ifm-5L-tzk"/>
     </designables>
+>>>>>>> Stashed changes
     <resources>
         <image name="minus" catalog="system" width="128" height="26"/>
         <image name="pin.fill" catalog="system" width="116" height="128"/>

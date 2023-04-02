@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+enum TasksModel {
+    case initial
+    case pinned(Data)
+    case pending(Data)
+    case completed(Data)
+    
+    struct Data {
+        var task: String
+    }
+}
