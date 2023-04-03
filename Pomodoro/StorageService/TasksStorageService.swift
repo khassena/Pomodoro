@@ -11,7 +11,7 @@ import RealmSwift
 protocol StorageServiceProtocol {
     func addToDatabase(_ task: TasksModel)
     func fetchFromDatabase() -> [TasksModel]?
-    func changeTaskPinned(_ task: TasksModel)
+    func changeTaskPinned(_ task: TasksModel?, _ index: Int)
     func removeFromDatabase(_ task: TasksModel)
     func removeAll()
 }
@@ -58,19 +58,27 @@ class StorageService: StorageServiceProtocol {
         return storedData
     }
     
-    func changeTaskPinned(_ task: TasksModel) {
-        guard let realm = realm else { return }
+    func changeTaskPinned(_ task: TasksModel?, _ index: Int) {
+        guard let realm = realm, task != nil else { return }
+        let realmObjects = realm.objects(TasksStorageModel.self)
+        let prevPinnedObj = realmObjects.filter { $0.pinned == true }.first
         var data = TasksStorageModel()
+        var pinned = false
         
         switch task {
-        case .pinned(let model):
-            data = realm.objects(TasksStorageModel.self).filter({ model.task == $0.task }).first ?? TasksStorageModel()
+        case .pinned(_):
+            data = realmObjects.reversed()[index]
+            pinned = true
+        case .pending(_):
+            data = realmObjects.reversed()[index]
+            pinned = false
         default: break
         }
         
         do {
             try realm.write {
-                data.pinned = true
+                prevPinnedObj?.pinned = !pinned
+                data.pinned = pinned
             }
         } catch {
             print(error)

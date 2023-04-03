@@ -13,4 +13,5 @@ class TasksStorageModel: Object {
     @objc dynamic var pinned: Bool = false
     @objc dynamic var pending: Bool = false
     @objc dynamic var completed: Bool = false
+    @objc dynamic var index: Int = 0
 }

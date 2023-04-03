@@ -25,6 +25,7 @@
 		FAA25FA229D2C20C0037A42A /* TasksStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FA129D2C20C0037A42A /* TasksStorageService.swift */; };
 		FAA25FA529D985E50037A42A /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FA429D985E50037A42A /* PaddingLabel.swift */; };
 		FAA25FAC29D9E27B0037A42A /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FAB29D9E27B0037A42A /* TasksViewModel.swift */; };
+		FAA25FAE29DAA4BC0037A42A /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA25FAD29DAA4BC0037A42A /* UIColor+HEX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		FAA25FA129D2C20C0037A42A /* TasksStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksStorageService.swift; sourceTree = "<group>"; };
 		FAA25FA429D985E50037A42A /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		FAA25FAB29D9E27B0037A42A /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		FAA25FAD29DAA4BC0037A42A /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				7674B3A229A8FC6C006161DB /* Assets.xcassets */,
 				7674B3A429A8FC6C006161DB /* LaunchScreen.storyboard */,
 				7674B3A729A8FC6C006161DB /* Info.plist */,
+				FAA25FAF29DAA4C70037A42A /* Extensions */,
 			);
 			path = Pomodoro;
 			sourceTree = "<group>";
@@ -210,6 +213,14 @@
 				FAA25F9F29D191AC0037A42A /* TasksStorageModel.swift */,
 			);
 			path = StorageService;
+			sourceTree = "<group>";
+		};
+		FAA25FAF29DAA4C70037A42A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAA25FAD29DAA4BC0037A42A /* UIColor+HEX.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7674B3B129A903FA006161DB /* Constants.swift in Sources */,
+				FAA25FAE29DAA4BC0037A42A /* UIColor+HEX.swift in Sources */,
 				7674B39E29A8FC68006161DB /* ViewController.swift in Sources */,
 				FAA25F9C29CC982A0037A42A /* TasksViewController.swift in Sources */,
 				7674B39A29A8FC68006161DB /* AppDelegate.swift in Sources */,

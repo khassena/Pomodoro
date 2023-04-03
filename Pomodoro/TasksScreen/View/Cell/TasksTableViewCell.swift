@@ -26,7 +26,6 @@ class TasksTableViewCell: UITableViewCell {
     }
   
     func configCell(_ task: TasksModel) {
-       
         switch task {
         case .pinned(let model):
             taskLabel.text = model.task
@@ -35,9 +34,12 @@ class TasksTableViewCell: UITableViewCell {
             taskLabel.backgroundColor = .systemIndigo
         case .pending(let model):
             taskLabel.text = model.task
+            taskLabel.textColor = .black
             pinIcon.isHidden = true
+            taskLabel.backgroundColor = UIColor(hexString: "EAEBEB")
         case .completed(let model):
             taskLabel.text = model.task
+            taskLabel.textColor = .black
             pinIcon.isHidden = true
             taskLabel.backgroundColor = .darkGray
         default: break
