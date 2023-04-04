@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var SelectSessionTypeButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    
+    @IBOutlet weak var taskButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,16 @@ class ViewController: UIViewController {
             resetButton.isEnabled = true
             resetButton.alpha = 0.0
         }
+        
+        startButton.layer.cornerRadius = 0.15 * startButton.bounds.size.width
+        startButton.clipsToBounds = true
+        
+        settingsButton.layer.cornerRadius = 0.2 * startButton.bounds.size.width
+        settingsButton.clipsToBounds = true
+        
+        taskButton.layer.cornerRadius = 0.2 * startButton.bounds.size.width
+        taskButton.clipsToBounds = true
+        
     }
 
     var dataReceived: String? {
@@ -73,20 +84,6 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: K.segueIdentifier, sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.segueIdentifier {
-            let destination = segue.destination as? SettingsViewController
-        }
-    }
-    
-    @IBAction func unwindToMain(_ sender: UIStoryboardSegue) {
-        
-        if let source = sender.source as? SettingsViewController {
-            dataReceived = source.workTimeLabel.text
-        }
-               // minutesLabel.text = source.workTimeLabel.text
-            
-        }
     
     //MARK: What happens when the start button is pressed:
     
