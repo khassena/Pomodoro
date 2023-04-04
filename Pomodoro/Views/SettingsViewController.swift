@@ -26,14 +26,18 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //background.layer.cornerRadius = background
-        //background.layer.opacity
-        plusWorkButton.layer.cornerRadius = plusWorkButton.bounds.size.height/2
-        plusWorkButton.clipsToBounds = true
-        minusWorkButton.layer.cornerRadius = plusWorkButton.bounds.size.height/2
-        minusWorkButton.clipsToBounds = true
-        workTimeLabel.text = String(workTime)
+        workTimeLabel.text = UserDefaults.standard.string(forKey: "Work Time")
+        shortBreakTimeLabel.text = UserDefaults.standard.string(forKey: "Short Break Time")
+        longBreakTimeLabel.text = UserDefaults.standard.string(forKey: "Long Break Time")
         
+        //workTimeLabel.text = String(workTime)
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(workTime, forKey: "Work Time")
+        UserDefaults.standard.set(shortBreakTime, forKey: "Short Break Time")
+        UserDefaults.standard.set(longBreakTime, forKey: "Long Break Time")
     }
     
     

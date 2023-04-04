@@ -39,11 +39,11 @@ class ViewController: UIViewController {
         
     }
 
-    var dataReceived: String? {
-            willSet {
-                minutesLabel.text = newValue
-            }
-        }
+//    var dataReceived: String? {
+//            willSet {
+//                minutesLabel.text = newValue
+//            }
+//        }
     
     //Create variables for the individual parts of the circular timer
     let foreProgressLayer = CAShapeLayer()
@@ -60,15 +60,15 @@ class ViewController: UIViewController {
         
         let alert = UIAlertController(title: "Select Session Type", message: "Choose the type of session you wish to begin.", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Work", style: .default, handler: { _ in
-         //   print(workTime)
+            self.minutesLabel.text = UserDefaults.standard.string(forKey: "Work Time")
         }))
         
         alert.addAction(UIAlertAction(title: "Short Break", style: .default, handler: { _ in
-            //print(shortBreakTime)
+            self.minutesLabel.text = UserDefaults.standard.string(forKey: "Short Break Time")
         }))
         
         alert.addAction(UIAlertAction(title: "Long Break", style: .default, handler: { _ in
-            //print(longBreakTime)
+            self.minutesLabel.text = UserDefaults.standard.string(forKey: "Long Break Time")
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
@@ -84,6 +84,20 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: K.segueIdentifier, sender: self)
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == K.segueIdentifier {
+//            let destination = segue.destination as? SettingsViewController
+//        }
+//    }
+    
+//    @IBAction func unwindToMain(_ sender: UIStoryboardSegue) {
+//
+//        if let source = sender.source as? SettingsViewController {
+//            dataReceived = source.workTimeLabel.text
+//        }
+//               // minutesLabel.text = source.workTimeLabel.text
+//
+//        }
     
     //MARK: What happens when the start button is pressed:
     
