@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFAudio
 
 class ViewController: UIViewController {
 
@@ -31,12 +32,15 @@ class ViewController: UIViewController {
         startButton.layer.cornerRadius = 0.15 * startButton.bounds.size.width
         startButton.clipsToBounds = true
         
-        settingsButton.layer.cornerRadius = 0.2 * startButton.bounds.size.width
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        settingsButton.layer.cornerRadius = settingsButton.bounds.size.height / 2.5
         settingsButton.clipsToBounds = true
         
-        taskButton.layer.cornerRadius = 0.2 * startButton.bounds.size.width
+        taskButton.layer.cornerRadius = taskButton.bounds.size.height / 2.5
         taskButton.clipsToBounds = true
-        
     }
 
 //    var dataReceived: String? {
@@ -49,12 +53,14 @@ class ViewController: UIViewController {
     let foreProgressLayer = CAShapeLayer()
     let backProgressLayer = CAShapeLayer()
     let animation = CABasicAnimation(keyPath: "strokeEnd")
+    var player: AVAudioPlayer!
     
     //Variables for better control of timer settings
     var timer = Timer()
     var isAnimationStarted = false
     var isTimerStarted = false
-    var time = 5
+    var totalTime = 60
+    var secondsPassed = 0
   
     @IBAction func SelectSessionTypeButtonPressed(_ sender: UIButton) {
         
@@ -99,7 +105,7 @@ class ViewController: UIViewController {
 //
 //        }
     
-    //MARK: What happens when the start button is pressed:
+    //MARK: - What happens when the start button is pressed:
     
     @IBAction func startButtonTapped(_ sender: Any) {
         //Hiding and turn off the reset button
@@ -128,7 +134,31 @@ class ViewController: UIViewController {
         }
     }
     
-    //MARK: What happens when the reset button is pressed:
+    //MARK: - What happens when Timer is  turns off :
+    
+    func turnOffTimer() {
+        // stop timer if running
+        if isTimerStarted {
+            pauseAnimation()
+            timer.invalidate()
+            isTimerStarted = false
+        }
+
+        // reset startButton button title and style
+        startButton.setTitle("Start", for: .normal)
+        startButton.setTitleColor(UIColor.white, for: .normal)
+        startButton.backgroundColor = UIColor(named: "Indigo")
+
+        // hide reset button
+        resetButton.isEnabled = false
+        resetButton.alpha = 0.0
+
+        // clear the painted area of the circle
+        clearForeLayer()
+        // reload initial screen
+    }
+
+    //MARK: - What happens when the reset button is pressed:
     
     @IBAction func resetButtonTapped(_ sender: Any) {
         stopAnimation() //Hide animation
@@ -140,10 +170,12 @@ class ViewController: UIViewController {
         startButton.setTitleColor(UIColor.white, for: .normal)
         startButton.backgroundColor = UIColor(named: "Indigo")
         timer.invalidate()
-        time = 5 //for test duration is equal only to 5 seconds
+        totalTime = 60 //for test duration is equal only to 5 seconds
         isTimerStarted = false //disabling the timer
         minutesLabel.text = "30" //also for testing the app our duration of timer so narrowly
     }
+    
+    //MARK: - START TIMER:
     
     func startTimer(){
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
@@ -151,30 +183,32 @@ class ViewController: UIViewController {
     
     @objc func updateTimer() //Timer update function. When it finishes, it brings it back to the initial state
     {
-        if time < 1 {
+        if totalTime == 0 {
             resetButton.isEnabled = false
             resetButton.alpha = 0.5
             startButton.setTitle("Start", for: .normal)
             startButton.setTitleColor(UIColor.gray, for: .normal)
             timer.invalidate()
-            time = 5
+            totalTime = 60
             isTimerStarted = false
-            minutesLabel.text = "30"
+            minutesLabel.text = String(totalTime)
+            turnOffTimer()
         } else {
-            time -= 1
+            totalTime -= 1
             minutesLabel.text = formatTime()
         }
     }
     
     //So that we can display only the minutes, we convert the format of the numbers on the screen (from seconds to minutes).
     func formatTime()->String{
-        let minutes = Int(time) / 60 % 60
+        let minutes = (Int(totalTime) / 60 % 60) + 1
         return String(format: "%02i", minutes)
     }
     //In the future, we will create a separate function to simplify the work (we will enter the minute equivalent at once)
     
     
-    //MARK: this code of background layer of timer circle.
+    //MARK: - Those code of drawing timer circle.
+    
     func drawBackLayer() {
         backProgressLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         backProgressLayer.strokeColor = UIColor.gray.cgColor
@@ -182,7 +216,7 @@ class ViewController: UIViewController {
         backProgressLayer.lineWidth = 15
         view.layer.addSublayer(backProgressLayer)
     }
-    //MARK: this code of foreground layer of timer circle.
+    
     func drawForeLayer() {
         foreProgressLayer.path = UIBezierPath(arcCenter: CGPoint(x: view.frame.midX, y: view.frame.midY), radius: 100, startAngle: -90.degreesToRadians, endAngle: 270.degreesToRadians, clockwise: true).cgPath
         foreProgressLayer.strokeColor = UIColor.white.cgColor
@@ -191,7 +225,15 @@ class ViewController: UIViewController {
         view.layer.addSublayer(foreProgressLayer)
     }
     
-    //MARK: Next: "Circular timer functions"
+    func clearForeLayer() {
+        stopAnimation()
+        foreProgressLayer.removeFromSuperlayer()
+    }
+
+
+    
+    
+    //MARK: - Next: "Circular timer functions"
     /*
      Nothing special and long to prescribe, the algorithm is the same. We just forbid the drawing of the circle further in the animation, then continue to draw it, then finish and hide. After the timer ends, the circle is completely filled. And we can start again by pressing the start button
      */
@@ -210,7 +252,7 @@ class ViewController: UIViewController {
         animation.keyPath = "strokeEnd"
         animation.fromValue = 0
         animation.toValue = 1
-        animation.duration = CFTimeInterval(time)
+        animation.duration = CFTimeInterval(totalTime)
         animation.isRemovedOnCompletion = false
         animation.isAdditive = true
         animation.fillMode = CAMediaTimingFillMode.forwards
