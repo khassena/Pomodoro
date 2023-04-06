@@ -53,14 +53,19 @@ class ViewController: UIViewController {
     let foreProgressLayer = CAShapeLayer()
     let backProgressLayer = CAShapeLayer()
     let animation = CABasicAnimation(keyPath: "strokeEnd")
-    var player: AVAudioPlayer!
+    var endTimer: AVAudioPlayer!
+    
     
     //Variables for better control of timer settings
     var timer = Timer()
     var isAnimationStarted = false
     var isTimerStarted = false
     var totalTime = 60
-    var secondsPassed = 0
+//    var totalTime = sessions[sessionType]!
+  
+    
+    //Variables for better control of sessions settings
+    let sessions = ["Work": 1800, "Long Break": 600, "Short Break": 300]
   
     @IBAction func SelectSessionTypeButtonPressed(_ sender: UIButton) {
         
@@ -192,6 +197,11 @@ class ViewController: UIViewController {
             totalTime = 60
             isTimerStarted = false
             minutesLabel.text = String(totalTime)
+            
+            let url = Bundle.main.url(forResource: "alarm_sound", withExtension: "mp3")
+            endTimer = try! AVAudioPlayer(contentsOf: url!)
+            endTimer.play()
+            
             turnOffTimer()
         } else {
             totalTime -= 1
