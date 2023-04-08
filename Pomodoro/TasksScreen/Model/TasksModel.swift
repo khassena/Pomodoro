@@ -7,13 +7,25 @@
 
 import Foundation
 
-enum TasksModel {
-    case initial
+enum TasksModel: Equatable {
     case pinned(Data)
     case pending(Data)
     case completed(Data)
     
-    struct Data {
+    struct Data: Equatable {
         var task: String
+        var id: Int
+    }
+    
+    static func == (lhs: TasksModel, rhs: TasksModel) -> Bool {
+        switch (lhs, rhs) {
+        case let (.pinned(leftData), .pinned(rightData)):
+            return leftData == rightData
+        case let (.pending(leftData), .pending(rightData)):
+            return leftData == rightData
+        case let (.completed(leftData), .completed(rightData)):
+            return leftData == rightData
+        default: return false
+        }
     }
 }

@@ -11,7 +11,8 @@ import RealmSwift
 protocol StorageServiceProtocol {
     func addToDatabase(_ task: TasksModel)
     func fetchFromDatabase() -> [TasksModel]?
-    func changeTaskPinned(_ task: TasksModel)
+    func changeTaskPinned(_ task: TasksModel?, _ index: Int)
+    func changeTaskCompleted(_ task: TasksModel?, _ index: Int)
     func removeFromDatabase(_ task: TasksModel)
     func removeAll()
 }
@@ -27,9 +28,11 @@ class StorageService: StorageServiceProtocol {
         switch task {
         case .pending(let model):
             data.task = model.task
+            data.id = model.id
             data.pending = true
         case .completed(let model):
             data.task = model.task
+            data.id = model.id
             data.completed = true
         default: break
         }
@@ -41,36 +44,70 @@ class StorageService: StorageServiceProtocol {
         } catch {
             print(error)
         }
-    }
+    } 
     
     func fetchFromDatabase() -> [TasksModel]? {
         guard let realm = realm else { return [] }
         storedData = []
         for item in realm.objects(TasksStorageModel.self) {
-            if item.pinned {
-                storedData.append(.pinned(TasksModel.Data(task: item.task)))
+            if item.completed {
+                storedData.append(.completed(TasksModel.Data(task: item.task, id: item.id)))
+            } else if item.pinned {
+                storedData.append(.pinned(TasksModel.Data(task: item.task, id: item.id)))
             } else if item.pending {
-                storedData.append(.pending(TasksModel.Data(task: item.task)))
-            } else {
-                storedData.append(.completed(TasksModel.Data(task: item.task)))
+                storedData.append(.pending(TasksModel.Data(task: item.task, id: item.id)))
             }
         }
         return storedData
     }
     
-    func changeTaskPinned(_ task: TasksModel) {
-        guard let realm = realm else { return }
+    func changeTaskPinned(_ task: TasksModel?, _ index: Int) {
+        guard let realm = realm, task != nil else { return }
+        let realmObjects = realm.objects(TasksStorageModel.self)
+        let prevPinnedObj = realmObjects.filter { $0.pinned == true }.first
         var data = TasksStorageModel()
+        var pinned = false
         
         switch task {
         case .pinned(let model):
-            data = realm.objects(TasksStorageModel.self).filter({ model.task == $0.task }).first ?? TasksStorageModel()
+            data = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
+            pinned = true
+        case .pending(let model):
+            data = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
+            pinned = false
         default: break
         }
         
         do {
             try realm.write {
-                data.pinned = true
+                prevPinnedObj?.pinned = !pinned
+                data.pinned = pinned
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func changeTaskCompleted(_ task: TasksModel?, _ index: Int) {
+        guard let realm = realm, task != nil else { return }
+        let realmObjects = realm.objects(TasksStorageModel.self)
+        var data = TasksStorageModel()
+        var completed = false
+    
+        switch task {
+        case .pending(let model):
+            data = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
+            completed = false
+        case .completed(let model):
+            data = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
+            completed = true
+        default: break
+        }
+        
+        do {
+            try realm.write {
+                data.pinned = false
+                data.completed = completed
             }
         } catch {
             print(error)

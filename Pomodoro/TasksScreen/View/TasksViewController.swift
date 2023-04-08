@@ -38,7 +38,7 @@ class TasksViewController: UIViewController {
         let actionOk = UIAlertAction(title: "Готово",
                                    style: .default) { action in
             guard let text = alert.textFields?.first?.text else { return }
-            self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text)))
+            self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text, id: self.viewModel.tasksCount + 1)))
         }
         let actionCancel = UIAlertAction(title: "Отмена",
                                    style: .default) { action in
@@ -57,16 +57,32 @@ class TasksViewController: UIViewController {
 extension TasksViewController {
     private func bindToViewModel() {
         viewModel.addedToDatabase = {
-            self.viewModel.fetchFromDatabase()
+            let newIndexPath = IndexPath(row: 0, section: 0)
+            self.taskTableView.beginUpdates()
+            self.taskTableView.insertRows(at: [newIndexPath], with: .automatic)
+            self.taskTableView.endUpdates()
         }
         
-        viewModel.didFetchData = { [weak self] data in
-            print(data)
-            let newIndexPath = IndexPath(row: 0, section: 0)
+//        viewModel.didFetchData = { [weak self] data in
+//            print(data)
+//
+//        }
+        
+        viewModel.changedPinnedTask = { [weak self] (task, indexPath) in
+            let cell = self?.taskTableView.cellForRow(at: indexPath) as? TasksTableViewCell
+            cell?.configCell(task)
+            self?.taskTableView.reloadData()
+        }
+        
+        viewModel.changedCompletedTask = { [weak self] (newIndex, oldIndex, section) in
+            
+            let newSection = section == .zero ? 1 : 0
+            let newIndexPath = IndexPath(row: newIndex, section: newSection)
+            let oldIndexPath = IndexPath(row: oldIndex, section: section)
             self?.taskTableView.beginUpdates()
+            self?.taskTableView.deleteRows(at: [oldIndexPath], with: .automatic)
             self?.taskTableView.insertRows(at: [newIndexPath], with: .automatic)
             self?.taskTableView.endUpdates()
-//            self?.taskTableView.reloadData()
         }
     }
 }
@@ -102,16 +118,30 @@ extension TasksViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
     
 }
 
 extension TasksViewController: UITableViewDelegate {
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        <#code#>
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == .zero,
+              let task = viewModel?.tasks["firstSection"]?[indexPath.row] else { return }
+        viewModel.changeTaskPinned(task, indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let completedAction = UIContextualAction(
+            style: .normal,
+            title: "Completed"
+        ) { _, _, isDone in
+            let key = indexPath.section == .zero ? "firstSection" : "secondSection"
+            guard let task = self.viewModel?.tasks[key]?[indexPath.row] else { return }
+            self.viewModel.changeTaskCompleted(task, indexPath)
+            isDone(true)
+        }
+        return UISwipeActionsConfiguration(actions: [completedAction])
+    }
+    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 //    }
 }
