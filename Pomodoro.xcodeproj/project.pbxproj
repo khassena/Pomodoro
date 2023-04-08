@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1910415129CDCB210017AB68 /* TimeBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910415029CDCB210017AB68 /* TimeBarController.swift */; };
+		19AE81ED29DE680A00C96C7F /* alarm_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 19AE81EC29DE680A00C96C7F /* alarm_sound.mp3 */; };
 		5DFDABCB2732F7D42621C3A9 /* Pods_Pomodoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A084B47BB2D4822A6EAF650C /* Pods_Pomodoro.framework */; };
 		7674B39A29A8FC68006161DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39929A8FC68006161DB /* AppDelegate.swift */; };
 		7674B39C29A8FC68006161DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7674B39B29A8FC68006161DB /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 		028CF71F73F716CBAA6F8A8D /* Pods-Pomodoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.release.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.release.xcconfig"; sourceTree = "<group>"; };
 		07710F49B7C46430B4145EE8 /* Pods-Pomodoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pomodoro.debug.xcconfig"; path = "Target Support Files/Pods-Pomodoro/Pods-Pomodoro.debug.xcconfig"; sourceTree = "<group>"; };
 		1910415029CDCB210017AB68 /* TimeBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeBarController.swift; sourceTree = "<group>"; };
+		19AE81EC29DE680A00C96C7F /* alarm_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm_sound.mp3; sourceTree = "<group>"; };
 		7674B39629A8FC68006161DB /* Pomodoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomodoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7674B39929A8FC68006161DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7674B39B29A8FC68006161DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				FAA25F8C29CC944C0037A42A /* TasksScreen */,
 				7674B39F29A8FC68006161DB /* Main.storyboard */,
 				7674B3A229A8FC6C006161DB /* Assets.xcassets */,
+				19AE81EC29DE680A00C96C7F /* alarm_sound.mp3 */,
 				7674B3A429A8FC6C006161DB /* LaunchScreen.storyboard */,
 				7674B3A729A8FC6C006161DB /* Info.plist */,
 				FAA25FAF29DAA4C70037A42A /* Extensions */,
@@ -285,6 +288,7 @@
 			files = (
 				7674B3A629A8FC6C006161DB /* LaunchScreen.storyboard in Resources */,
 				7674B3A329A8FC6C006161DB /* Assets.xcassets in Resources */,
+				19AE81ED29DE680A00C96C7F /* alarm_sound.mp3 in Resources */,
 				7674B3A129A8FC68006161DB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
