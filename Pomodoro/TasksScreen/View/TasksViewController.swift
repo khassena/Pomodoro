@@ -38,7 +38,7 @@ class TasksViewController: UIViewController {
         let actionOk = UIAlertAction(title: "Готово",
                                    style: .default) { action in
             guard let text = alert.textFields?.first?.text else { return }
-            self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text)))
+            self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text, id: self.viewModel.tasksCount + 1)))
         }
         let actionCancel = UIAlertAction(title: "Отмена",
                                    style: .default) { action in
@@ -72,6 +72,17 @@ extension TasksViewController {
             let cell = self?.taskTableView.cellForRow(at: indexPath) as? TasksTableViewCell
             cell?.configCell(task)
             self?.taskTableView.reloadData()
+        }
+        
+        viewModel.changedCompletedTask = { [weak self] (newIndex, oldIndex, section) in
+            
+            let newSection = section == .zero ? 1 : 0
+            let newIndexPath = IndexPath(row: newIndex, section: newSection)
+            let oldIndexPath = IndexPath(row: oldIndex, section: section)
+            self?.taskTableView.beginUpdates()
+            self?.taskTableView.deleteRows(at: [oldIndexPath], with: .automatic)
+            self?.taskTableView.insertRows(at: [newIndexPath], with: .automatic)
+            self?.taskTableView.endUpdates()
         }
     }
 }
@@ -113,7 +124,24 @@ extension TasksViewController: UITableViewDataSource {
 extension TasksViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let task = viewModel?.tasks["firstSection"]?[indexPath.row] else { return }
+        guard indexPath.section == .zero,
+              let task = viewModel?.tasks["firstSection"]?[indexPath.row] else { return }
         viewModel.changeTaskPinned(task, indexPath)
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let completedAction = UIContextualAction(
+            style: .normal,
+            title: "Completed"
+        ) { _, _, isDone in
+            let key = indexPath.section == .zero ? "firstSection" : "secondSection"
+            guard let task = self.viewModel?.tasks[key]?[indexPath.row] else { return }
+            self.viewModel.changeTaskCompleted(task, indexPath)
+            isDone(true)
+        }
+        return UISwipeActionsConfiguration(actions: [completedAction])
+    }
+    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//    }
 }

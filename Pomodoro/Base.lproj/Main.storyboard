@@ -477,9 +477,7 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="ifm-5L-tzk">
-            <size key="intrinsicContentSize" width="40" height="20"/>
-        </designable>
+        <designable name="ifm-5L-tzk"/>
     </designables>
     <resources>
         <image name="minus" catalog="system" width="128" height="24"/>
