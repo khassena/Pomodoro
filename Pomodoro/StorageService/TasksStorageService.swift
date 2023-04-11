@@ -11,8 +11,8 @@ import RealmSwift
 protocol StorageServiceProtocol {
     func addToDatabase(_ task: TasksModel)
     func fetchFromDatabase() -> [TasksModel]?
-    func changeTaskPinned(_ task: TasksModel?, _ index: Int)
-    func changeTaskCompleted(_ task: TasksModel?, _ index: Int)
+    func changeTaskPinned(_ task: TasksModel?)
+    func changeTaskCompleted(_ task: TasksModel?)
     func removeFromDatabase(_ task: TasksModel)
     func removeAll()
 }
@@ -61,7 +61,7 @@ class StorageService: StorageServiceProtocol {
         return storedData
     }
     
-    func changeTaskPinned(_ task: TasksModel?, _ index: Int) {
+    func changeTaskPinned(_ task: TasksModel?) {
         guard let realm = realm, task != nil else { return }
         let realmObjects = realm.objects(TasksStorageModel.self)
         let prevPinnedObj = realmObjects.filter { $0.pinned == true }.first
@@ -88,7 +88,7 @@ class StorageService: StorageServiceProtocol {
         }
     }
     
-    func changeTaskCompleted(_ task: TasksModel?, _ index: Int) {
+    func changeTaskCompleted(_ task: TasksModel?) {
         guard let realm = realm, task != nil else { return }
         let realmObjects = realm.objects(TasksStorageModel.self)
         var data = TasksStorageModel()
@@ -116,12 +116,16 @@ class StorageService: StorageServiceProtocol {
     
     func removeFromDatabase(_ task: TasksModel) {
         guard let realm = realm else { return }
+        let realmObjects = realm.objects(TasksStorageModel.self)
         var deleteObject = TasksStorageModel()
         
         switch task {
+        case .pending(let model):
+            deleteObject = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
+        case .completed(let model):
+            deleteObject = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
         case .pinned(let model):
-            deleteObject = realm.objects(TasksStorageModel.self).filter({ model.task == $0.task }).first ?? TasksStorageModel()
-        default: break
+            deleteObject = realmObjects.filter({ $0.id == model.id }).first ?? TasksStorageModel()
         }
         
         do{

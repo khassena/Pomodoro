@@ -38,7 +38,7 @@ class TasksViewController: UIViewController {
         let actionOk = UIAlertAction(title: "Готово",
                                    style: .default) { action in
             guard let text = alert.textFields?.first?.text else { return }
-            self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text, id: self.viewModel.tasksCount + 1)))
+            self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text)))
         }
         let actionCancel = UIAlertAction(title: "Отмена",
                                    style: .default) { action in
@@ -63,25 +63,22 @@ extension TasksViewController {
             self.taskTableView.endUpdates()
         }
         
-//        viewModel.didFetchData = { [weak self] data in
-//            print(data)
-//
-//        }
-        
         viewModel.changedPinnedTask = { [weak self] (task, indexPath) in
             let cell = self?.taskTableView.cellForRow(at: indexPath) as? TasksTableViewCell
             cell?.configCell(task)
             self?.taskTableView.reloadData()
         }
         
-        viewModel.changedCompletedTask = { [weak self] (newIndex, oldIndex, section) in
-            
-            let newSection = section == .zero ? 1 : 0
-            let newIndexPath = IndexPath(row: newIndex, section: newSection)
-            let oldIndexPath = IndexPath(row: oldIndex, section: section)
+        viewModel.changedCompletedTask = { [weak self] (newIndexPath, oldIndexPath) in
             self?.taskTableView.beginUpdates()
             self?.taskTableView.deleteRows(at: [oldIndexPath], with: .automatic)
             self?.taskTableView.insertRows(at: [newIndexPath], with: .automatic)
+            self?.taskTableView.endUpdates()
+        }
+        
+        viewModel.removedFromDatabase = { [weak self] (indexPath) in
+            self?.taskTableView.beginUpdates()
+            self?.taskTableView.deleteRows(at: [indexPath], with: .automatic)
             self?.taskTableView.endUpdates()
         }
     }
@@ -130,18 +127,43 @@ extension TasksViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let key = indexPath.section == .zero ? "firstSection" : "secondSection"
         let completedAction = UIContextualAction(
             style: .normal,
-            title: "Completed"
+            title: nil
         ) { _, _, isDone in
-            let key = indexPath.section == .zero ? "firstSection" : "secondSection"
             guard let task = self.viewModel?.tasks[key]?[indexPath.row] else { return }
             self.viewModel.changeTaskCompleted(task, indexPath)
             isDone(true)
         }
+        completedAction.image = key == "firstSection" ? Constants.Images.doneIcon : Constants.Images.backIcon
+        completedAction.backgroundColor = .white
         return UISwipeActionsConfiguration(actions: [completedAction])
     }
     
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let key = indexPath.section == .zero ? "firstSection" : "secondSection"
+        let completedAction = UIContextualAction(
+            style: .normal,
+            title: nil
+        ) { _, _, isDone in
+            guard let task = self.viewModel?.tasks[key]?[indexPath.row] else { return }
+            
+            let alert = UIAlertController(title: "Delete Task", message: "Are you sure you want to delete this Tasl?", preferredStyle: .actionSheet)
+            
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                self.viewModel.removeFromDatabase(task, indexPath)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+                print("Cancel button selected")
+            }))
+            
+            self.present(alert, animated: true)
+            isDone(true)
+        }
+        completedAction.image = Constants.Images.deleteIcon
+        completedAction.backgroundColor = .white
+        return UISwipeActionsConfiguration(actions: [completedAction])
+    }
 }
