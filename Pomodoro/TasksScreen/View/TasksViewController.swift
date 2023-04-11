@@ -13,34 +13,42 @@ class TasksViewController: UIViewController {
     // MARK: @IBOutlets
     @IBOutlet weak var addNewButton: UIButton!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var taskTableView: TasksTableView!
-    
+    @IBOutlet weak var taskTableView: UITableView!
     
     // MARK: Properties
     var viewModel: TasksViewModelProtocol!
     private var storageService: StorageServiceProtocol!
+    var didFinishTasks: ((String) -> Void)?
+    var pinnedTask: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         storageService = StorageService()
         viewModel = TasksViewModel(storageService: storageService)
         bindToViewModel()
+        findPinnedTask()
         taskTableView.sectionHeaderTopPadding = 10
         taskTableView.dataSource = self
         taskTableView.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let task = pinnedTask {
+            didFinishTasks?(task)
+        }
+    }
 
     @IBAction func addNewAction(_ sender: Any) {
         let alert = UIAlertController(title: "Enter your task",
                                                 message: "",
                                                 preferredStyle: .alert)
-        let actionOk = UIAlertAction(title: "Готово",
+        let actionOk = UIAlertAction(title: "Done",
                                    style: .default) { action in
             guard let text = alert.textFields?.first?.text else { return }
             self.viewModel.addToDatabase(.pending(TasksModel.Data(task: text)))
         }
-        let actionCancel = UIAlertAction(title: "Отмена",
+        let actionCancel = UIAlertAction(title: "Cancel",
                                    style: .default) { action in
             alert.dismiss(animated: true)
         }
@@ -50,7 +58,15 @@ class TasksViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-
+    func findPinnedTask() {
+        storageService.fetchFromDatabase()?.forEach({ task in
+            switch task {
+            case .pinned(let data):
+                self.pinnedTask = data.task
+            default: break
+            }
+        })
+    }
 
 }
 
@@ -66,6 +82,11 @@ extension TasksViewController {
         viewModel.changedPinnedTask = { [weak self] (task, indexPath) in
             let cell = self?.taskTableView.cellForRow(at: indexPath) as? TasksTableViewCell
             cell?.configCell(task)
+            switch task {
+            case .pinned(let data):
+                self?.pinnedTask = data.task
+            default: self?.pinnedTask = ""
+            }
             self?.taskTableView.reloadData()
         }
         
@@ -85,7 +106,6 @@ extension TasksViewController {
 }
 
 extension TasksViewController: UITableViewDataSource {
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
