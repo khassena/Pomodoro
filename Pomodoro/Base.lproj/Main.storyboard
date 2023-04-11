@@ -96,7 +96,7 @@
                                             <imageReference key="image" image="note.text.badge.plus" catalog="system" symbolScale="large"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="aOJ-vC-HNB" kind="show" id="Ffw-Nu-GgT"/>
+                                            <segue destination="aOJ-vC-HNB" kind="show" identifier="tasksNavVC" id="mhh-7U-lGE"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="40" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i0-Dt-iWB">
@@ -120,6 +120,16 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lej-IP-7KB">
+                                <rect key="frame" x="40" y="150" width="334" height="70"/>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Pib-U3-VCa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Tp-EH-ifM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -130,9 +140,12 @@
                             <constraint firstItem="qRS-O1-m4z" firstAttribute="top" secondItem="ndV-in-JaE" secondAttribute="bottom" constant="8" id="1Oc-HI-cTd"/>
                             <constraint firstItem="yWV-LP-GHv" firstAttribute="top" secondItem="qRS-O1-m4z" secondAttribute="bottom" constant="50" id="3QN-hu-gR3"/>
                             <constraint firstItem="ndV-in-JaE" firstAttribute="centerX" secondItem="l4h-1p-kCn" secondAttribute="centerX" id="6b0-Sz-xxC"/>
+                            <constraint firstItem="lej-IP-7KB" firstAttribute="top" secondItem="l4h-1p-kCn" secondAttribute="bottom" constant="45" id="BIn-RH-22A"/>
                             <constraint firstItem="ndV-in-JaE" firstAttribute="centerX" secondItem="qRS-O1-m4z" secondAttribute="centerX" id="EXm-lv-hd7"/>
                             <constraint firstItem="bht-co-DpE" firstAttribute="centerX" secondItem="yWV-LP-GHv" secondAttribute="centerX" id="EYp-3N-zTC"/>
+                            <constraint firstItem="lej-IP-7KB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Pmz-ec-LQY"/>
                             <constraint firstItem="l4h-1p-kCn" firstAttribute="top" secondItem="1Tp-EH-ifM" secondAttribute="top" constant="28" id="Qpt-AQ-WMb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lej-IP-7KB" secondAttribute="trailing" constant="20" id="da7-A2-nFr"/>
                             <constraint firstItem="ndV-in-JaE" firstAttribute="leading" secondItem="1Tp-EH-ifM" secondAttribute="leading" constant="144" id="eyF-SO-3JO"/>
                             <constraint firstItem="l4h-1p-kCn" firstAttribute="leading" secondItem="1Tp-EH-ifM" secondAttribute="leading" constant="162" id="kzj-Ag-2Vk"/>
                             <constraint firstItem="bht-co-DpE" firstAttribute="top" secondItem="fsb-ot-opl" secondAttribute="bottom" constant="-7.5" id="m92-CT-vJu"/>
@@ -144,6 +157,7 @@
                     </view>
                     <connections>
                         <outlet property="SelectSessionTypeButton" destination="l4h-1p-kCn" id="n7n-6K-47x"/>
+                        <outlet property="mainTaskLabel" destination="lej-IP-7KB" id="aVC-lB-8nf"/>
                         <outlet property="minutesLabel" destination="fsb-ot-opl" id="BGd-iF-rNq"/>
                         <outlet property="resetButton" destination="qRS-O1-m4z" id="lkZ-RG-iIh"/>
                         <outlet property="settingsButton" destination="6i0-Dt-iWB" id="XA1-m7-z21"/>
@@ -353,12 +367,12 @@
         <!--Tasks-->
         <scene sceneID="i6a-hc-JmX">
             <objects>
-                <viewController id="oWS-rf-xRS" customClass="TasksViewController" customModule="Pomodoro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tasksVC" id="oWS-rf-xRS" customClass="TasksViewController" customModule="Pomodoro" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r2u-rk-Mro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q69-Ce-dl8" customClass="TasksTableView" customModule="Pomodoro" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q69-Ce-dl8">
                                 <rect key="frame" x="20" y="56" width="374" height="786"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tasksCell" rowHeight="105" id="m6j-Qk-4Vp" customClass="TasksTableViewCell" customModule="Pomodoro" customModuleProvider="target">
@@ -370,7 +384,7 @@
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-5L-tzk" customClass="PaddingLabel" customModule="Pomodoro" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="10" width="374" height="85"/>
-                                                    <color key="backgroundColor" red="0.91676169633865356" green="0.92173320055007935" blue="0.92164534330368042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="10" bottom="8" trailing="8"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -456,7 +470,7 @@
                     <connections>
                         <outlet property="addNewButton" destination="iIS-t3-xzD" id="gDv-1Y-IAa"/>
                         <outlet property="containerView" destination="Sbe-xI-zaO" id="9vA-e3-W64"/>
-                        <outlet property="taskTableView" destination="Q69-Ce-dl8" id="Sol-EO-bXS"/>
+                        <outlet property="taskTableView" destination="Q69-Ce-dl8" id="FsL-6C-eTt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WhM-CO-knp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -489,7 +503,9 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="ifm-5L-tzk"/>
+        <designable name="ifm-5L-tzk">
+            <size key="intrinsicContentSize" width="40" height="20"/>
+        </designable>
     </designables>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>

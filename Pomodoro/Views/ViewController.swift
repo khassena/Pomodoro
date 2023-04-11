@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var taskButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var mainTaskLabel: UILabel!
+    var storageService = StorageService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,16 @@ class ViewController: UIViewController {
         
         startButton.layer.cornerRadius = 0.15 * startButton.bounds.size.width
         startButton.clipsToBounds = true
-        
+        mainTaskLabel.layer.cornerRadius = 30
+        storageService.fetchFromDatabase()?.forEach({ task in
+            switch task {
+            case .pinned(let data):
+                self.mainTaskLabel.isHidden = false
+                self.mainTaskLabel.text = data.task
+                break
+            default: break
+            }
+        })
     }
     
     override func viewDidLayoutSubviews() {
@@ -93,6 +104,22 @@ class ViewController: UIViewController {
     @IBAction func settingsPressed(_ sender: Any) {
         
         performSegue(withIdentifier: K.segueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let navigationController = segue.destination as? UINavigationController,
+           let tasksVC = navigationController.topViewController as? TasksViewController {
+            
+            tasksVC.didFinishTasks = { [weak self] (task) in
+                if !task.isEmpty {
+                    self?.mainTaskLabel.text = task
+                    self?.mainTaskLabel.isHidden = false
+                } else {
+                    self?.mainTaskLabel.isHidden = true
+                }
+                
+            }
+        }
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
