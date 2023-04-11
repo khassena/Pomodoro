@@ -14,7 +14,12 @@ enum TasksModel: Equatable {
     
     struct Data: Equatable {
         var task: String
-        var id: Int
+        var id: String
+        
+        init(task: String, id: String = UUID().uuidString) {
+            self.task = task
+            self.id = id
+        }
     }
     
     static func == (lhs: TasksModel, rhs: TasksModel) -> Bool {

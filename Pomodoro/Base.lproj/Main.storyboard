@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -357,18 +358,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Q69-Ce-dl8" customClass="TasksTableView" customModule="Pomodoro" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="414" height="782"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q69-Ce-dl8" customClass="TasksTableView" customModule="Pomodoro" customModuleProvider="target">
+                                <rect key="frame" x="20" y="56" width="374" height="786"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tasksCell" rowHeight="105" id="m6j-Qk-4Vp" customClass="TasksTableViewCell" customModule="Pomodoro" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="105"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m6j-Qk-4Vp" id="TN4-XM-OLT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifm-5L-tzk" customClass="PaddingLabel" customModule="Pomodoro" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="10" width="374" height="85"/>
+                                                    <rect key="frame" x="0.0" y="10" width="374" height="85"/>
                                                     <color key="backgroundColor" red="0.91676169633865356" green="0.92173320055007935" blue="0.92164534330368042" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="10" bottom="8" trailing="8"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -390,7 +391,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LFF-hR-fAj">
-                                                    <rect key="frame" x="350" y="40" width="24" height="25.5"/>
+                                                    <rect key="frame" x="330" y="40" width="24" height="25.5"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="M6V-Kk-FY1"/>
@@ -399,12 +400,12 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="ifm-5L-tzk" secondAttribute="trailing" constant="20" id="Hgn-AK-pqL"/>
+                                                <constraint firstAttribute="trailing" secondItem="ifm-5L-tzk" secondAttribute="trailing" id="Hgn-AK-pqL"/>
                                                 <constraint firstAttribute="bottom" secondItem="ifm-5L-tzk" secondAttribute="bottom" constant="10" id="Wwv-4g-ZJP"/>
                                                 <constraint firstItem="ifm-5L-tzk" firstAttribute="top" secondItem="TN4-XM-OLT" secondAttribute="top" constant="10" id="XTk-wb-blg"/>
-                                                <constraint firstItem="ifm-5L-tzk" firstAttribute="leading" secondItem="TN4-XM-OLT" secondAttribute="leading" constant="20" id="sAR-04-Ebs"/>
+                                                <constraint firstItem="ifm-5L-tzk" firstAttribute="leading" secondItem="TN4-XM-OLT" secondAttribute="leading" id="sAR-04-Ebs"/>
                                                 <constraint firstItem="LFF-hR-fAj" firstAttribute="centerY" secondItem="ifm-5L-tzk" secondAttribute="centerY" id="tRr-qq-HV3"/>
-                                                <constraint firstItem="LFF-hR-fAj" firstAttribute="trailing" secondItem="TN4-XM-OLT" secondAttribute="trailingMargin" constant="-20" id="zyp-PW-aWE"/>
+                                                <constraint firstItem="LFF-hR-fAj" firstAttribute="trailing" secondItem="TN4-XM-OLT" secondAttribute="trailingMargin" id="zyp-PW-aWE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -417,10 +418,10 @@
                                 <sections/>
                             </tableView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sbe-xI-zaO">
-                                <rect key="frame" x="0.0" y="56" width="414" height="782"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIS-t3-xzD">
-                                <rect key="frame" x="252.5" y="730" width="141.5" height="54"/>
+                                <rect key="frame" x="257" y="734" width="137" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="137" id="sOz-eI-OS8"/>
                                     <constraint firstAttribute="height" constant="54" id="z7X-2W-ix2"/>
@@ -438,10 +439,10 @@
                         <viewLayoutGuide key="safeArea" id="NRM-Rh-Xak"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Q69-Ce-dl8" firstAttribute="leading" secondItem="Sbe-xI-zaO" secondAttribute="leading" id="1ye-MU-H0R"/>
+                            <constraint firstItem="Q69-Ce-dl8" firstAttribute="leading" secondItem="Sbe-xI-zaO" secondAttribute="leading" constant="20" id="1ye-MU-H0R"/>
                             <constraint firstItem="Sbe-xI-zaO" firstAttribute="leading" secondItem="NRM-Rh-Xak" secondAttribute="leading" id="5ru-ta-MKE"/>
                             <constraint firstItem="Q69-Ce-dl8" firstAttribute="bottom" secondItem="Sbe-xI-zaO" secondAttribute="bottom" id="8Kc-7d-m9y"/>
-                            <constraint firstItem="Q69-Ce-dl8" firstAttribute="trailing" secondItem="Sbe-xI-zaO" secondAttribute="trailing" id="HdG-mK-Ops"/>
+                            <constraint firstItem="Q69-Ce-dl8" firstAttribute="trailing" secondItem="Sbe-xI-zaO" secondAttribute="trailing" constant="-20" id="HdG-mK-Ops"/>
                             <constraint firstItem="iIS-t3-xzD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NRM-Rh-Xak" secondAttribute="leading" symbolic="YES" id="MgJ-4h-yr2"/>
                             <constraint firstItem="Q69-Ce-dl8" firstAttribute="top" secondItem="Sbe-xI-zaO" secondAttribute="top" id="R2N-1j-cH0"/>
                             <constraint firstItem="NRM-Rh-Xak" firstAttribute="trailing" secondItem="Sbe-xI-zaO" secondAttribute="trailing" id="XWP-6Y-iBg"/>
@@ -488,12 +489,12 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="ifm-5L-tzk">
-            <size key="intrinsicContentSize" width="40" height="20"/>
-        </designable>
+        <designable name="ifm-5L-tzk"/>
     </designables>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="minus" catalog="system" width="128" height="24"/>
+        <image name="note.text.badge.plus" catalog="system" width="128" height="108"/>
         <image name="pin.fill" catalog="system" width="119" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
