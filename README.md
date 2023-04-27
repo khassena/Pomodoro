@@ -39,10 +39,10 @@ We divided the tasks into 3 parts and my task was to make the Tasks screen.
     <tbody>
         <tr>
             <td>
-                <video width="250" src="Video/myApp.mp4">
+                <img width="250" src="Gif/myApp.gif">
             </td>
             <td>
-                <video width="250" src="Video/originalApp.MP4">
+                <img width="250" src="Gif/originalApp.gif">
             </td>
         </tr>
     </tbody>
