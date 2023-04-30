@@ -9,7 +9,7 @@
 
 ## Description
 
-This is a group project of 3 people in which I am a member. we decided to make a clone of the <a href="https://apps.apple.com/kz/app/pomodoro-focus-timer/id1504867122">Pomodoro</a> application already existing in the App Store. The idea of the application is based on the Pomodoro Technique by which people can perform a To-Do list on a timer
+This is a group project of 3 people in which I am a member. We decided to make a clone of the <a href="https://apps.apple.com/kz/app/pomodoro-focus-timer/id1504867122">Pomodoro</a> application already existing in the App Store. The idea of the application is based on the Pomodoro Technique by which people can perform a To-Do list on a timer
 
 We divided the tasks into 3 parts and my task was to make the Tasks screen.
 
@@ -25,7 +25,6 @@ We divided the tasks into 3 parts and my task was to make the Tasks screen.
 * AutoLayout - Storyboard
 * Realm
 * Data Driven UI
-* Error Handling
 
 ## App
 
